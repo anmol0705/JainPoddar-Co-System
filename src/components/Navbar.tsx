@@ -59,11 +59,11 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-1 shrink-0">
             <Image
-              src="/images/logo2.jpg"
+              src="/images/logo1.png"
               alt="Jain Poddar & Co."
-              width={180}
+              width={160}
               height={48}
-              className="h-8 lg:h-10 w-auto brightness-0 invert"
+              className="h-10 lg:h-12 w-auto object-contain"
               priority
             />
           </Link>

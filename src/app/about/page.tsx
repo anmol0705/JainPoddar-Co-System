@@ -105,7 +105,7 @@ function FoundingStory() {
               </motion.span>
 
               <RevealText
-                as="h2"
+                as="h1"
                 className="font-[family-name:var(--font-display)] font-semibold leading-[1.05] tracking-[-0.03em] text-stone-900"
                 style={{ fontSize: "clamp(32px, 4vw, 52px)" }}
               >
@@ -143,7 +143,7 @@ function FoundingStory() {
 function TeamPhotoStrip() {
   return (
     <section className="relative overflow-hidden" style={{ backgroundColor: "var(--color-ink)" }}>
-      <div className="aspect-[21/6] md:aspect-[21/5] relative">
+      <div className="aspect-[8/5] md:aspect-[21/9] lg:aspect-[21/8]">
         <Image
           src="/images/about3.jpg"
           alt="The full JPC team"
@@ -151,7 +151,7 @@ function TeamPhotoStrip() {
           className="object-cover object-center img-editorial"
           sizes="100vw"
           loading="lazy"
-          style={{ opacity: 0.6 }}
+          style={{ opacity: 0.5 }}
         />
         <div
           className="absolute inset-0"

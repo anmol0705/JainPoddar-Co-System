@@ -117,7 +117,7 @@ function HeroSection() {
       <div className="max-w-[1440px] mx-auto relative z-10 min-h-screen">
         <div className="grid grid-cols-1 lg:grid-cols-12 min-h-screen">
           {/* ── Left: Text content (7 cols) ── */}
-          <div className="lg:col-span-7 flex items-center px-5 md:px-10 lg:px-20 py-28 lg:py-0">
+          <div className="lg:col-span-7 flex items-center px-5 md:px-10 lg:px-20 py-28 lg:pb-10 lg:pt-32">
             <div className="hero-parallax-content max-w-[620px]">
               {/* Overline */}
               <div
@@ -191,9 +191,7 @@ function HeroSection() {
               </div>
 
               {/* Credentials bar */}
-              <div
-                className="hero-credentials hidden lg:flex items-center gap-0 mt-16 opacity-0"
-              >
+              {/* <div className="hero-credentials hidden lg:flex items-start gap-0 mt-16 opacity-0">
                 {[
                   { label: "Est.", value: "2002" },
                   { label: "Offices", value: "Ranchi · Ramgarh" },
@@ -201,7 +199,7 @@ function HeroSection() {
                 ].map((item, i) => (
                   <div
                     key={i}
-                    className={`flex-1 py-4 ${i > 0 ? "border-l" : ""}`}
+                    className={`flex-1 py-4 ${i > 0 ? "border-l pl-6" : "pr-6"}`}
                     style={{ borderColor: "rgba(181,179,173,0.1)" }}
                   >
                     <span
@@ -218,7 +216,7 @@ function HeroSection() {
                     </span>
                   </div>
                 ))}
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -981,9 +979,8 @@ function StatsSection() {
           ].map((stat, i) => (
             <div
               key={i}
-              className={`text-center ${
-                i < 3 ? "lg:border-r lg:border-stone-300/10" : ""
-              }`}
+              className={`text-center ${i < 3 ? "lg:border-r lg:border-stone-300/10" : ""
+                }`}
             >
               <StatCounter
                 value={stat.value}
