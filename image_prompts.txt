@@ -1,0 +1,154 @@
+================================================================================
+                    JAIN PODDAR & CO. — AI IMAGE PROMPTS
+              Generate these images and place them in /public/images/
+================================================================================
+
+
+1. HERO BACKGROUND — hero-bg.jpg
+--------------------------------------------------------------------------------
+PLACEMENT: Homepage hero section, full-viewport background (shown at ~12% opacity
+           with dark overlay). Sets the emotional tone for the entire site.
+SIZE:      1920x1080 minimum, landscape orientation
+STYLE:     Dark, moody, cinematic
+
+PROMPT:
+"A dramatic low-angle photograph of modern glass skyscrapers converging toward
+a dark sky, shot at blue hour. Deep navy and charcoal tones with subtle warm
+golden light reflecting off glass facades. The composition creates a sense of
+authority and upward momentum. Ultra-sharp architectural photography, cinematic
+color grading with teal shadows and warm highlights. No people, no text.
+Professional architectural photography style, 35mm lens perspective."
+
+ALTERNATIVE PROMPT (if you prefer something more abstract):
+"An abstract overhead photograph of a polished dark marble desk surface with
+subtle gold veining. A fountain pen rests diagonally across a crisp white
+financial document. Soft directional lighting from the left creates elegant
+shadows. Dark moody atmosphere, luxury editorial photography style. Shallow
+depth of field. Navy and gold color palette."
+
+
+2. ABOUT SECTION IMAGE — about-hero.jpg
+--------------------------------------------------------------------------------
+PLACEMENT: Homepage "About" split section (left half, full height). Also used
+           on the About page as the founding story image.
+SIZE:      1200x1600 minimum, portrait or square orientation
+STYLE:     Warm, professional, human
+
+PROMPT:
+"Four Indian business professionals in formal suits standing together in a
+modern office with floor-to-ceiling glass windows. Natural daylight streaming
+in. They are engaged in a confident, collegial discussion — one gesturing
+toward documents. Modern Indian corporate interior with clean lines, warm wood
+accents, and subtle greenery. Professional editorial photography, warm color
+temperature, shallow depth of field on background. Composition should feel
+natural and candid, not posed. Shot on 50mm f/1.8."
+
+
+3. OFFICE WORKSPACE — office-workspace.jpg
+--------------------------------------------------------------------------------
+PLACEMENT: Homepage CTA section (left half), Contact page background,
+           About page featured image.
+SIZE:      1920x1080 minimum, landscape
+STYLE:     Clean, modern, productive
+
+PROMPT:
+"A modern Indian chartered accountancy office interior. Clean white desks with
+organized documents, a computer screen showing financial spreadsheets, glass
+partition walls in the background. Warm afternoon sunlight filtering through
+blinds creating soft shadows. A few people working at desks in soft focus
+background. The space feels professional but welcoming — not sterile.
+Architectural interior photography, warm neutral tones with cream and light
+wood. Shot with a wide-angle lens, f/5.6."
+
+
+4. RANCHI CITYSCAPE — ranchi-skyline.jpg
+--------------------------------------------------------------------------------
+PLACEMENT: Can be used as an alternative hero background or CTA section
+           background. Establishes geographic identity.
+SIZE:      1920x1080 minimum, landscape
+STYLE:     Golden hour, aspirational
+
+PROMPT:
+"Aerial view of Ranchi, Jharkhand city skyline at golden hour. Modern buildings
+and commercial towers mixed with lush green trees characteristic of Jharkhand.
+The Subarnarekha river or Ranchi Lake visible in the distance. Warm golden
+sunlight casting long shadows. The sky transitions from deep blue to warm
+amber. Cinematic cityscape photography, slightly elevated perspective as if
+shot from a 15th floor. Vivid but not oversaturated. India."
+
+
+5. FINANCIAL DETAIL — financial-texture.jpg
+--------------------------------------------------------------------------------
+PLACEMENT: Services page detail sections as subtle background texture,
+           Insights page featured article background.
+SIZE:      1920x1080 minimum, landscape
+STYLE:     Minimal, editorial, textural
+
+PROMPT:
+"A close-up editorial photograph of financial documents on a dark oak desk.
+A brass pen, reading glasses, and a leather-bound notebook arranged naturally.
+Soft overhead lighting creates gentle shadows. The documents show printed
+columns of numbers (not legible, just texture). Color palette: dark wood
+browns, cream paper, warm brass gold accents. Luxury editorial style, shot
+from 45-degree angle with shallow depth of field. No people visible."
+
+
+6. TEAM GROUP PORTRAIT — team-formal.jpg
+--------------------------------------------------------------------------------
+PLACEMENT: Replaces about3.jpg/about5.jpg in team sections. Used on Team page
+           as the full-width team photo strip.
+SIZE:      2400x800 minimum, wide panoramic landscape (21:7 ratio)
+STYLE:     Professional, warm, editorial
+
+PROMPT:
+"A professional group photograph of approximately 20 Indian office workers —
+a mix of men and women in business casual and formal attire — standing
+together in a modern office lobby. Clean white/cream walls with subtle glass
+elements behind them. Natural lighting from large windows. Everyone looks
+confident and approachable. The composition is slightly wider than usual,
+creating a panoramic feel. Professional corporate photography, warm color
+grading, everyone in focus. The group feels cohesive and established."
+
+
+7. CONFERENCE/SEMINAR — conference.jpg
+--------------------------------------------------------------------------------
+PLACEMENT: Gallery section, About page milestones area.
+SIZE:      1600x1200 minimum, landscape
+STYLE:     Professional event photography
+
+PROMPT:
+"An Indian business professional in a navy blazer giving a presentation at a
+CA (Chartered Accountants) conference or seminar. A modern conference room
+with blue-accent stage lighting and a large screen behind showing financial
+charts. The audience is partially visible in soft-focus foreground. Clean,
+well-lit professional event photography. The speaker appears authoritative
+and engaged. Warm skin tones, cool stage lighting contrast."
+
+
+8. ABSTRACT PATTERN — pattern-gold.jpg
+--------------------------------------------------------------------------------
+PLACEMENT: Used as a very subtle background texture in various dark sections
+           at 2-5% opacity. Adds visual depth without distraction.
+SIZE:      1200x1200 minimum, square
+STYLE:     Abstract, geometric, luxury
+
+PROMPT:
+"An abstract geometric pattern of intersecting gold lines on a deep navy
+background. The lines form subtle angular shapes reminiscent of architectural
+blueprints or financial graphs. Some lines are solid gold, others are faded
+to near-transparency. The overall effect is sophisticated and minimal — like
+looking at the structure of a building from above. No text, no recognizable
+shapes. Luxury brand aesthetic, clean and mathematical."
+
+
+================================================================================
+NOTES:
+- All images should be saved as .jpg at 80-90% quality
+- Place files in: /public/images/
+- After adding images, update the src paths in the code
+- The site currently uses existing photos from /public/images/ (about1-10.jpg,
+  partner photos). The AI images above are ADDITIONS to enhance sections that
+  need more polished visuals.
+- Priority order: #1 (hero-bg), #2 (about-hero), #3 (office-workspace) are
+  the most impactful. Generate these first.
+================================================================================
