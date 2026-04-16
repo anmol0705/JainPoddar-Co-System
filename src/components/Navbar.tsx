@@ -16,13 +16,22 @@ const navLinks = [
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === "/";
 
   useEffect(() => {
+    let lastY = window.scrollY;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 80);
+      const currentY = window.scrollY;
+      setScrolled(currentY > 80);
+      if (currentY > lastY && currentY > 80) {
+        setHidden(true);
+      } else {
+        setHidden(false);
+      }
+      lastY = currentY;
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
@@ -49,23 +58,24 @@ export function Navbar() {
   return (
     <>
       <header
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-400"
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
         style={{
           backgroundColor: showSolid ? "var(--color-ink)" : "transparent",
           boxShadow: showSolid ? "0 1px 0 rgba(255,255,255,0.06)" : "none",
+          transform: hidden && !mobileOpen ? "translateY(-100%)" : "translateY(0)",
         }}
       >
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-20 flex items-center justify-between h-16 lg:h-18">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-1 shrink-0">
             <Image
-              src="/images/logo1.png"
+              src="/images/logo6.png"
               alt="Jain Poddar & Co."
-              width={160}
+              width={200}
               height={48}
-              className="h-10 lg:h-12 w-auto object-contain"
-              // style={{ width: 'auto', height: 'auto' }}
-              style={{ width: 'auto' }}
+              className="h-13 lg:h-16 w-auto object-contain"
+              style={{ width: 'auto', height: 'auto' }}
+              // style={{ width: 'auto' }}
               priority
             />
           </Link>

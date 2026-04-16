@@ -106,7 +106,7 @@ function FeaturedShowcase() {
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  loading="lazy"
+                  priority
                   style={{ filter: "grayscale(0.3) contrast(1.05)" }}
                 />
                 <div
