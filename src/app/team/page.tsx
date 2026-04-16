@@ -54,6 +54,7 @@ export default function TeamPage() {
             fill
             className="object-cover object-center"
             sizes="100vw"
+            loading="lazy"
             style={{ opacity: 0.5, filter: "grayscale(0.3)" }}
           />
           <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, var(--color-ink) 0%, transparent 30%, transparent 70%, var(--color-ink) 100%)" }} />
@@ -99,6 +100,7 @@ export default function TeamPage() {
                         fill
                         className="object-cover object-top"
                         sizes="(max-width: 1024px) 100vw, 50vw"
+                        loading="lazy"
                       />
                       <div
                         className="absolute inset-0"
@@ -227,7 +229,7 @@ export default function TeamPage() {
         <div className="max-w-[1440px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[50vh]">
             <div className="relative min-h-[250px] lg:min-h-full overflow-hidden hidden lg:block">
-              <Image src="/images/about9.jpg" alt="JPC office" fill className="object-cover img-editorial" sizes="50vw" />
+              <Image src="/images/about9.jpg" alt="JPC office" fill className="object-cover img-editorial" sizes="50vw" loading="lazy" />
               <div className="absolute inset-0" style={{ background: "linear-gradient(to right, transparent 60%, var(--color-ivory) 100%)" }} />
             </div>
             <div className="flex items-center px-5 md:px-10 lg:px-16 xl:px-20 py-20 lg:py-24">

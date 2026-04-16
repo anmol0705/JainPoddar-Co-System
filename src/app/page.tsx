@@ -1202,6 +1202,7 @@ function CTASection() {
               fill
               className="object-cover img-editorial"
               sizes="50vw"
+              loading="lazy"
             />
             <div
               className="absolute inset-0"

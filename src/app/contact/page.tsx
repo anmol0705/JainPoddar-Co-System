@@ -74,23 +74,26 @@ function ContactForm() {
 
         <div className="form-field" style={{ opacity: 0 }}>
           <label htmlFor="name" className="font-[family-name:var(--font-body)] text-[11px] font-semibold uppercase tracking-[0.15em] block mb-3" style={{ color: "var(--color-stone-500)" }}>Full Name</label>
-          <input type="text" id="name" name="name" required className={inputClasses} style={inputStyle} placeholder="Your full name" />
+          <input type="text" id="name" name="name" required aria-describedby="name-hint" className={inputClasses} style={inputStyle} placeholder="Your full name" />
+          <span id="name-hint" className="sr-only">Required. Enter your full name.</span>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="form-field" style={{ opacity: 0 }}>
             <label htmlFor="email" className="font-[family-name:var(--font-body)] text-[11px] font-semibold uppercase tracking-[0.15em] block mb-3" style={{ color: "var(--color-stone-500)" }}>Email Address</label>
-            <input type="email" id="email" name="email" required className={inputClasses} style={inputStyle} placeholder="your@email.com" />
+            <input type="email" id="email" name="email" required aria-describedby="email-hint" className={inputClasses} style={inputStyle} placeholder="your@email.com" />
+            <span id="email-hint" className="sr-only">Required. Enter a valid email address.</span>
           </div>
           <div className="form-field" style={{ opacity: 0 }}>
             <label htmlFor="phone" className="font-[family-name:var(--font-body)] text-[11px] font-semibold uppercase tracking-[0.15em] block mb-3" style={{ color: "var(--color-stone-500)" }}>Phone Number</label>
-            <input type="tel" id="phone" name="phone" className={inputClasses} style={inputStyle} placeholder="+91-XXXXX XXXXX" />
+            <input type="tel" id="phone" name="phone" aria-describedby="phone-hint" className={inputClasses} style={inputStyle} placeholder="+91-XXXXX XXXXX" />
+            <span id="phone-hint" className="sr-only">Optional. Enter your phone number with country code.</span>
           </div>
         </div>
 
         <div className="form-field" style={{ opacity: 0 }}>
           <label htmlFor="inquiry_type" className="font-[family-name:var(--font-body)] text-[11px] font-semibold uppercase tracking-[0.15em] block mb-3" style={{ color: "var(--color-stone-500)" }}>Nature of Inquiry</label>
-          <select id="inquiry_type" name="inquiry_type" required className={`${inputClasses} appearance-none`} style={inputStyle} defaultValue="">
+          <select id="inquiry_type" name="inquiry_type" required aria-describedby="inquiry-hint" className={`${inputClasses} appearance-none`} style={inputStyle} defaultValue="">
             <option value="" disabled>Select an area</option>
             <option value="Audit & Assurance">Audit &amp; Assurance</option>
             <option value="Tax Advisory">Tax Advisory</option>
@@ -101,16 +104,19 @@ function ContactForm() {
             <option value="New Client Inquiry">New Client Inquiry</option>
             <option value="Other">Other</option>
           </select>
+          <span id="inquiry-hint" className="sr-only">Required. Select the area of service you are inquiring about.</span>
         </div>
 
         <div className="form-field" style={{ opacity: 0 }}>
           <label htmlFor="subject" className="font-[family-name:var(--font-body)] text-[11px] font-semibold uppercase tracking-[0.15em] block mb-3" style={{ color: "var(--color-stone-500)" }}>Subject</label>
-          <input type="text" id="subject" name="subject" required className={inputClasses} style={inputStyle} placeholder="Brief description of your need" />
+          <input type="text" id="subject" name="subject" required aria-describedby="subject-hint" className={inputClasses} style={inputStyle} placeholder="Brief description of your need" />
+          <span id="subject-hint" className="sr-only">Required. Briefly describe the subject of your inquiry.</span>
         </div>
 
         <div className="form-field" style={{ opacity: 0 }}>
           <label htmlFor="message" className="font-[family-name:var(--font-body)] text-[11px] font-semibold uppercase tracking-[0.15em] block mb-3" style={{ color: "var(--color-stone-500)" }}>Message</label>
-          <textarea id="message" name="message" rows={4} required className="w-full px-0 py-3 font-[family-name:var(--font-body)] text-base bg-transparent border-0 border-b text-stone-900 transition-all duration-300 focus:border-champagne focus:outline-none resize-none placeholder:text-stone-300" style={inputStyle} placeholder="Tell us about your needs..." />
+          <textarea id="message" name="message" rows={4} required aria-describedby="message-hint" className="w-full px-0 py-3 font-[family-name:var(--font-body)] text-base bg-transparent border-0 border-b text-stone-900 transition-all duration-300 focus:border-champagne focus:outline-none resize-none placeholder:text-stone-300" style={inputStyle} placeholder="Tell us about your needs..." />
+          <span id="message-hint" className="sr-only">Required. Provide details about your needs.</span>
         </div>
 
         <div className="form-field pt-4" style={{ opacity: 0 }}>
@@ -133,6 +139,7 @@ function OfficeInfo() {
           fill
           className="object-cover"
           sizes="50vw"
+          loading="lazy"
           style={{ opacity: 0.08, filter: "grayscale(1)" }}
         />
       </div>

@@ -256,9 +256,12 @@ export default function InsightsPage() {
             className="flex flex-col sm:flex-row gap-3 mt-8"
             onSubmit={(e) => e.preventDefault()}
           >
+            <label htmlFor="subscribe-email" className="sr-only">Email address</label>
             <input
+              id="subscribe-email"
               type="email"
               placeholder="Your email address"
+              aria-label="Email address for newsletter subscription"
               className="flex-1 h-12 px-4 font-[family-name:var(--font-body)] text-base bg-transparent border transition-all duration-300 focus:border-champagne focus:outline-none"
               style={{
                 borderColor: "rgba(181,179,173,0.2)",

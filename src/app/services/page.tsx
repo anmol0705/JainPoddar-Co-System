@@ -106,6 +106,7 @@ function FeaturedShowcase() {
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
+                  loading="lazy"
                   style={{ filter: "grayscale(0.3) contrast(1.05)" }}
                 />
                 <div
@@ -207,6 +208,7 @@ function FeaturedShowcase() {
                       fill="none"
                       stroke="currentColor"
                       strokeWidth={2}
+                      aria-hidden="true"
                     >
                       <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
@@ -449,6 +451,7 @@ function ServiceAccordion() {
                       fill="none"
                       stroke="currentColor"
                       strokeWidth={1.5}
+                      aria-hidden="true"
                       style={{
                         color:
                           openCategory === gi
@@ -560,6 +563,7 @@ function ServiceAccordion() {
                                 fill="none"
                                 stroke="currentColor"
                                 strokeWidth={1.5}
+                                aria-hidden="true"
                                 style={{
                                   color: isExpanded
                                     ? "var(--color-champagne)"
@@ -687,6 +691,7 @@ function ServiceAccordion() {
                                           fill="none"
                                           stroke="currentColor"
                                           strokeWidth={2}
+                                          aria-hidden="true"
                                         >
                                           <path d="M7 17L17 7M17 7H7M17 7V17" />
                                         </svg>
@@ -917,6 +922,7 @@ function CTASection() {
               fill
               className="object-cover img-editorial"
               sizes="50vw"
+              loading="lazy"
             />
             <div
               className="absolute inset-0"

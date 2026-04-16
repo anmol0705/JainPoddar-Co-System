@@ -86,6 +86,7 @@ function FoundingStory() {
               fill
               className="object-cover img-editorial scale-105"
               sizes="(max-width: 1024px) 100vw, 50vw"
+              loading="lazy"
             />
           </div>
 
@@ -149,6 +150,7 @@ function TeamPhotoStrip() {
           fill
           className="object-cover object-center img-editorial"
           sizes="100vw"
+          loading="lazy"
           style={{ opacity: 0.6 }}
         />
         <div
@@ -396,7 +398,7 @@ function PartnersPreview() {
               style={{ color: "var(--color-champagne)" }}
             >
               Full Team Profiles
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </Link>
@@ -420,6 +422,7 @@ function PartnersPreview() {
                     fill
                     className="object-cover object-top transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] grayscale-[30%] group-hover:grayscale-0 group-hover:scale-[1.03]"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    loading="lazy"
                   />
                   <div
                     className="absolute inset-0 transition-opacity duration-500"
@@ -504,7 +507,7 @@ function CTASection() {
       <div className="max-w-[1440px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[50vh]">
           <div className="relative min-h-[250px] lg:min-h-full overflow-hidden hidden lg:block">
-            <Image src="/images/about9.jpg" alt="JPC office" fill className="object-cover img-editorial" sizes="50vw" />
+            <Image src="/images/about9.jpg" alt="JPC office" fill className="object-cover img-editorial" sizes="50vw" loading="lazy" />
             <div className="absolute inset-0" style={{ background: "linear-gradient(to right, transparent 60%, var(--color-ink) 100%)" }} />
           </div>
           <div className="flex items-center px-5 md:px-10 lg:px-16 xl:px-20 py-20 lg:py-24">

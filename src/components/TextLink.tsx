@@ -20,6 +20,7 @@ export function TextLink({ href, children }: TextLinkProps) {
         stroke="currentColor"
         viewBox="0 0 24 24"
         strokeWidth={2.5}
+        aria-hidden="true"
       >
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
       </svg>
