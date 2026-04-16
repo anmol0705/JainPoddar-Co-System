@@ -289,7 +289,7 @@ function HeroSection() {
                     className="font-[family-name:var(--font-mono)] text-[32px] font-bold block leading-none"
                     style={{ color: "var(--color-champagne)" }}
                   >
-                    500+
+                    1000+
                   </span>
                   <span
                     className="font-[family-name:var(--font-body)] text-[11px] uppercase tracking-[0.15em] mt-1 block"
@@ -520,7 +520,7 @@ function AboutSection() {
                 {[
                   { number: "24+", label: "Years" },
                   { number: "4", label: "Partners" },
-                  { number: "500+", label: "Clients" },
+                  { number: "1000+", label: "Clients" },
                 ].map((stat) => (
                   <div key={stat.label}>
                     <span

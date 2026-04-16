@@ -82,7 +82,7 @@ export const partners: Partner[] = [
     slug: "anish-agarwal",
     title: "Partner",
     image: "/images/anish.jpg",
-    coreFocus: "GST Consultancy & Dispute Resolution",
+    coreFocus: "Indirect Tax Consultant and Corporate consultant",
     qualifications: "B.Com | FCA",
     bio: [
       "CA. Anish Agarwal is a Commerce Graduate and has been in practice as a Chartered Accountant since 2016. He brings a decade of focused expertise to the firm's indirect taxation practice.",

@@ -4,7 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { SmoothScroll } from "@/components/SmoothScroll";
-import { CustomCursor } from "@/components/CustomCursor";
+// import { CustomCursor } from "@/components/CustomCursor";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-display",
@@ -69,7 +69,7 @@ export default function RootLayout({
     >
       <body className="min-h-screen antialiased">
         <SmoothScroll>
-          <CustomCursor />
+          {/* <CustomCursor /> */}
           <div className="grain-overlay" aria-hidden="true" />
           <a href="#main-content" className="skip-to-content">
             Skip to content

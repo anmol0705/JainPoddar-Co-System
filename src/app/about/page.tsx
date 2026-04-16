@@ -19,7 +19,7 @@ const milestones = [
   { year: "2007", event: "CA. Rahul Saraf joins — management audit & process consultancy", highlight: false },
   { year: "2012", event: "Expanded to branch office in Ramgarh Cantt", highlight: false },
   { year: "2016", event: "CA. Anish Agarwal joins — GST dispute resolution & compliance", highlight: false },
-  { year: "2024", event: "Serving 500+ clients across 16 service verticals", highlight: true },
+  { year: "2024", event: "Serving 1000+ clients across 16 service verticals", highlight: true },
 ];
 
 const values = [
