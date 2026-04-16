@@ -71,7 +71,7 @@ function FoundingStory() {
           scrollTrigger: { trigger: imageRef.current, start: "top 75%", once: true },
         }
       );
-    });
+    }, imageRef);
     return () => ctx.revert();
   }, []);
 

@@ -44,8 +44,10 @@ function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
-    if (formRef.current) {
-      const fields = formRef.current.querySelectorAll(".form-field");
+    if (!formRef.current) return;
+
+    const ctx = gsap.context(() => {
+      const fields = formRef.current!.querySelectorAll(".form-field");
       gsap.fromTo(
         fields,
         { opacity: 0, y: 30 },
@@ -54,7 +56,9 @@ function ContactForm() {
           scrollTrigger: { trigger: formRef.current, start: "top 80%", once: true },
         }
       );
-    }
+    }, formRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (

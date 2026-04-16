@@ -30,41 +30,45 @@ export function PageHeader({ overline, title, subtitle }: PageHeaderProps) {
   useEffect(() => {
     if (!sectionRef.current) return;
 
-    // Overline
-    gsap.fromTo(
-      ".page-header-overline",
-      { opacity: 0, x: -20 },
-      { opacity: 1, x: 0, duration: 1, ease: "power4.out", delay: 0.2 }
-    );
-
-    // Title lines
-    lineRefs.current.forEach((line, i) => {
-      if (!line) return;
+    const ctx = gsap.context(() => {
+      // Overline
       gsap.fromTo(
-        line.querySelector("span"),
-        { y: "110%" },
-        {
-          y: "0%",
-          duration: 1.2,
-          ease: "power4.out",
-          delay: 0.4 + i * 0.12,
-        }
+        ".page-header-overline",
+        { opacity: 0, x: -20 },
+        { opacity: 1, x: 0, duration: 1, ease: "power4.out", delay: 0.2 }
       );
-    });
 
-    // Subtitle
-    gsap.fromTo(
-      ".page-header-subtitle",
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", delay: 0.8 }
-    );
+      // Title lines
+      lineRefs.current.forEach((line, i) => {
+        if (!line) return;
+        gsap.fromTo(
+          line.querySelector("span"),
+          { y: "110%" },
+          {
+            y: "0%",
+            duration: 1.2,
+            ease: "power4.out",
+            delay: 0.4 + i * 0.12,
+          }
+        );
+      });
 
-    // Decorative line
-    gsap.fromTo(
-      ".page-header-line",
-      { scaleX: 0 },
-      { scaleX: 1, duration: 1.2, ease: "power3.inOut", delay: 0.6 }
-    );
+      // Subtitle
+      gsap.fromTo(
+        ".page-header-subtitle",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", delay: 0.8 }
+      );
+
+      // Decorative line
+      gsap.fromTo(
+        ".page-header-line",
+        { scaleX: 0 },
+        { scaleX: 1, duration: 1.2, ease: "power3.inOut", delay: 0.6 }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, [title]);
 
   return (

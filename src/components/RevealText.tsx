@@ -65,38 +65,36 @@ export function RevealText({
 
     const charEls = el.querySelectorAll(".char");
 
-    if (scrub) {
-      gsap.to(charEls, {
-        y: 0,
-        stagger: stagger,
-        ease: "power4.out",
-        scrollTrigger: {
-          trigger: el,
-          start: "top 85%",
-          end: "top 30%",
-          scrub: 1,
-        },
-      });
-    } else {
-      gsap.to(charEls, {
-        y: 0,
-        duration: 0.8,
-        stagger: stagger,
-        ease: "power4.out",
-        delay: delay,
-        scrollTrigger: {
-          trigger: el,
-          start: "top 85%",
-          once: true,
-        },
-      });
-    }
+    const ctx = gsap.context(() => {
+      if (scrub) {
+        gsap.to(charEls, {
+          y: 0,
+          stagger: stagger,
+          ease: "power4.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 85%",
+            end: "top 30%",
+            scrub: 1,
+          },
+        });
+      } else {
+        gsap.to(charEls, {
+          y: 0,
+          duration: 0.8,
+          stagger: stagger,
+          ease: "power4.out",
+          delay: delay,
+          scrollTrigger: {
+            trigger: el,
+            start: "top 85%",
+            once: true,
+          },
+        });
+      }
+    }, containerRef);
 
-    return () => {
-      ScrollTrigger.getAll().forEach((st) => {
-        if (st.trigger === el) st.kill();
-      });
-    };
+    return () => ctx.revert();
   }, [children, delay, stagger, scrub]);
 
   const Component = Tag;

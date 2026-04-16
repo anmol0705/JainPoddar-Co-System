@@ -18,19 +18,23 @@ export default function TeamPage() {
   useEffect(() => {
     if (!partnersRef.current) return;
 
-    const images = partnersRef.current.querySelectorAll(".partner-image-wrap");
-    images.forEach((img) => {
-      gsap.fromTo(
-        img,
-        { clipPath: "inset(0 100% 0 0)" },
-        {
-          clipPath: "inset(0 0% 0 0)",
-          duration: 1.2,
-          ease: "power3.inOut",
-          scrollTrigger: { trigger: img, start: "top 80%", once: true },
-        }
-      );
-    });
+    const ctx = gsap.context(() => {
+      const images = partnersRef.current!.querySelectorAll(".partner-image-wrap");
+      images.forEach((img) => {
+        gsap.fromTo(
+          img,
+          { clipPath: "inset(0 100% 0 0)" },
+          {
+            clipPath: "inset(0 0% 0 0)",
+            duration: 1.2,
+            ease: "power3.inOut",
+            scrollTrigger: { trigger: img, start: "top 80%", once: true },
+          }
+        );
+      });
+    }, partnersRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (

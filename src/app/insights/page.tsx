@@ -26,26 +26,30 @@ export default function InsightsPage() {
   useEffect(() => {
     if (!gridRef.current) return;
 
-    const cards = gridRef.current.querySelectorAll(".insight-card");
-    cards.forEach((card, i) => {
-      gsap.fromTo(
-        card,
-        { opacity: 0, y: 50, scale: 0.97 },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.8,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: card,
-            start: "top 88%",
-            once: true,
-          },
-          delay: (i % 2) * 0.1,
-        }
-      );
-    });
+    const ctx = gsap.context(() => {
+      const cards = gridRef.current!.querySelectorAll(".insight-card");
+      cards.forEach((card, i) => {
+        gsap.fromTo(
+          card,
+          { opacity: 0, y: 50, scale: 0.97 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 88%",
+              once: true,
+            },
+            delay: (i % 2) * 0.1,
+          }
+        );
+      });
+    }, gridRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (

@@ -461,6 +461,7 @@ function AboutSection() {
               fill
               className="object-cover img-editorial scale-110"
               sizes="(max-width: 1024px) 100vw, 50vw"
+              loading="lazy"
             />
           </div>
 
@@ -736,6 +737,7 @@ function ServicesSection() {
                       strokeWidth={1.5}
                       className="transition-all duration-500 group-hover:stroke-[var(--color-champagne)]"
                       style={{ color: "var(--color-stone-300)" }}
+                      aria-hidden="true"
                     >
                       <path d="M7 17L17 7M17 7H7M17 7V17" />
                     </svg>
@@ -843,6 +845,7 @@ function EditorialSection() {
               fill
               className="object-cover img-editorial"
               sizes="(max-width: 768px) 100vw, 58vw"
+              loading="lazy"
             />
             <div
               className="absolute inset-0"
@@ -876,6 +879,7 @@ function EditorialSection() {
                 fill
                 className="object-cover img-editorial"
                 sizes="(max-width: 768px) 100vw, 42vw"
+                loading="lazy"
               />
               <div
                 className="absolute inset-0"
@@ -901,6 +905,7 @@ function EditorialSection() {
                 fill
                 className="object-cover img-editorial"
                 sizes="(max-width: 768px) 100vw, 42vw"
+                loading="lazy"
               />
               <div
                 className="absolute inset-0"
@@ -1050,6 +1055,7 @@ function TeamSection() {
                     fill
                     className="object-cover object-top transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] grayscale-[30%] group-hover:grayscale-0 group-hover:scale-[1.03]"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    loading="lazy"
                   />
                   <div
                     className="absolute inset-0 transition-opacity duration-500"
@@ -1104,6 +1110,7 @@ function TestimonialSection() {
           fill
           className="object-cover"
           sizes="100vw"
+          loading="lazy"
           style={{ opacity: 0.06, filter: "grayscale(1)" }}
         />
         <div
@@ -1155,6 +1162,7 @@ function TestimonialSection() {
                   fill
                   className="object-cover"
                   sizes="48px"
+                  loading="lazy"
                 />
               </div>
               <div className="text-left">

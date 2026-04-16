@@ -26,22 +26,20 @@ export function ParallaxImage({
   useEffect(() => {
     if (!containerRef.current || !imageRef.current) return;
 
-    gsap.to(imageRef.current, {
-      yPercent: -20 * speed,
-      ease: "none",
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
-
-    return () => {
-      ScrollTrigger.getAll().forEach((st) => {
-        if (st.trigger === containerRef.current) st.kill();
+    const ctx = gsap.context(() => {
+      gsap.to(imageRef.current, {
+        yPercent: -20 * speed,
+        ease: "none",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+        },
       });
-    };
+    }, containerRef);
+
+    return () => ctx.revert();
   }, [speed]);
 
   return (
