@@ -121,6 +121,8 @@ export function PageHeader({ overline, title, subtitle }: PageHeaderProps) {
           ))}
         </h1>
 
+        
+
         {subtitle && (
           <p
             className="page-header-subtitle font-[family-name:var(--font-body)] text-base md:text-lg mt-8 max-w-[560px] leading-[1.7] opacity-0"

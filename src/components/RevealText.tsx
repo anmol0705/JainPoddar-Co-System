@@ -41,6 +41,7 @@ export function RevealText({
       wordSpan.style.display = "inline-block";
       wordSpan.style.overflow = "hidden";
       wordSpan.style.verticalAlign = "top";
+      wordSpan.style.whiteSpace = "nowrap";
 
       const chars = word.split("");
       chars.forEach((char) => {

@@ -35,11 +35,12 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-5">
             <Image
-              src="/images/logo2.jpg"
+              src="/images/logo1.png"
               alt="Jain Poddar & Co."
-              width={180}
-              height={48}
-              className="h-9 w-auto brightness-0 invert mb-4"
+              width={320}
+              height={96}
+              className="h-20 w-auto object-contain mb-4"
+              style={{ width: "auto" }}
             />
             <p
               className="font-[family-name:var(--font-body)] text-sm"

@@ -241,11 +241,10 @@ function FeaturedShowcase() {
                             i === active
                               ? "var(--color-champagne)"
                               : "transparent",
-                          border: `1px solid ${
-                            i === active
+                          border: `1px solid ${i === active
                               ? "var(--color-champagne)"
                               : "rgba(181,179,173,0.15)"
-                          }`,
+                            }`,
                         }}
                       >
                         {shortName}
@@ -432,11 +431,10 @@ function ServiceAccordion() {
                   <div
                     className="w-10 h-10 flex items-center justify-center transition-all duration-500"
                     style={{
-                      border: `1px solid ${
-                        openCategory === gi
+                      border: `1px solid ${openCategory === gi
                           ? "var(--color-champagne)"
                           : "rgba(181,179,173,0.2)"
-                      }`,
+                        }`,
                     }}
                   >
                     <motion.svg
@@ -854,9 +852,9 @@ function QuoteSection() {
                 color: "var(--color-stone-900)",
               }}
             >
-              We don&apos;t trade in opinions. We build positions — grounded in
-              statute, tested against precedent, and built to withstand
-              scrutiny.
+              An audit that only confirms what is already known is not an audit
+              — it is a formality. We look for what the numbers are not yet
+              saying.
             </p>
           </motion.blockquote>
 
@@ -875,13 +873,13 @@ function QuoteSection() {
               className="font-[family-name:var(--font-body)] text-[13px] font-semibold uppercase tracking-[0.15em]"
               style={{ color: "var(--color-champagne)" }}
             >
-              CA. Akhil Poddar
+              CA. Rahul Saraf
             </span>
             <span
               className="font-[family-name:var(--font-body)] text-[13px]"
               style={{ color: "var(--color-stone-500)" }}
             >
-              &mdash; Senior Partner
+              &mdash; Senior Partner, Management Audit & Process Consultancy
             </span>
           </motion.div>
         </div>
@@ -1028,7 +1026,7 @@ export default function ServicesPage() {
       <PageHeader
         overline="Our Practice"
         title="Sixteen Verticals. One Standard of Excellence."
-        subtitle="Every practice area is led by a partner with deep, applied expertise."
+        subtitle="Every practice area is led by a partner with deep expertise."
       />
 
       <FeaturedShowcase />

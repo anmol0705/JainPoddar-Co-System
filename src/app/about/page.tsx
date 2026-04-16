@@ -97,7 +97,7 @@ function FoundingStory() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="font-[family-name:var(--font-body)] text-[11px] font-semibold uppercase tracking-[0.25em] flex items-center gap-3 mb-6"
+                className="font-[family-name:var(--font-body)] text-[11px] font-semibold uppercase tracking-[0.25em] flex items-center gap-3 mb-4"
                 style={{ color: "var(--color-champagne)" }}
               >
                 <span className="inline-block w-8 h-px bg-champagne" />
@@ -105,9 +105,9 @@ function FoundingStory() {
               </motion.span>
 
               <RevealText
-                as="h1"
+                as="h2"
                 className="font-[family-name:var(--font-display)] font-semibold leading-[1.05] tracking-[-0.03em] text-stone-900"
-                style={{ fontSize: "clamp(32px, 4vw, 52px)" }}
+                style={{ fontSize: "clamp(36px, 5vw, 64px)" }}
               >
                 From Two Partners to a Full-Spectrum Practice
               </RevealText>
@@ -123,7 +123,7 @@ function FoundingStory() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 + i * 0.12, duration: 0.8 }}
-                  className="font-[family-name:var(--font-body)] text-base leading-[1.75] mt-5"
+                  className={`font-[family-name:var(--font-body)] text-base leading-[1.75] ${i === 0 ? "mt-8" : "mt-5"}`}
                   style={{ color: "var(--color-stone-700)" }}
                 >
                   {para}
@@ -143,7 +143,7 @@ function FoundingStory() {
 function TeamPhotoStrip() {
   return (
     <section className="relative overflow-hidden" style={{ backgroundColor: "var(--color-ink)" }}>
-      <div className="aspect-[8/5] md:aspect-[21/9] lg:aspect-[21/8]">
+      <div className="aspect-[8/5] md:aspect-[21/9] lg:aspect-[21/8] relative">
         <Image
           src="/images/about3.jpg"
           alt="The full JPC team"
@@ -201,7 +201,7 @@ function TimelineSection() {
           <RevealText
             as="h2"
             className="font-[family-name:var(--font-display)] font-semibold leading-[1.05] tracking-[-0.03em]"
-            style={{ fontSize: "clamp(32px, 4vw, 52px)", color: "var(--color-ivory)" }}
+            style={{ fontSize: "clamp(36px, 5vw, 64px)", color: "var(--color-ivory)" }}
           >
             Twenty-Four Years of Growth
           </RevealText>
@@ -330,7 +330,7 @@ function ValuesSection() {
                 {value.number}
               </span>
               <h3 className="font-[family-name:var(--font-display)] text-[24px] md:text-[28px] font-semibold relative z-10 leading-tight" style={{ color: "var(--color-ivory)" }}>{value.title}</h3>
-              <p className="font-[family-name:var(--font-body)] text-sm mt-4 leading-[1.65] relative z-10" style={{ color: "var(--color-stone-300)" }}>{value.description}</p>
+              <p className="font-[family-name:var(--font-body)] text-sm mt-4 leading-[1.75] relative z-10" style={{ color: "var(--color-stone-300)" }}>{value.description}</p>
             </div>
           ))}
         </div>
@@ -459,7 +459,7 @@ function PartnersPreview() {
    ═══════════════════════════════════════════════════ */
 function SectorsSection() {
   return (
-    <section className="py-24 md:py-32 lg:py-40" style={{ backgroundColor: "var(--color-ivory-warm)" }}>
+    <section className="py-24 md:py-32 lg:py-40" style={{ backgroundColor: "var(--color-ivory)" }}>
       <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-20">
         <span className="font-[family-name:var(--font-body)] text-[11px] font-semibold uppercase tracking-[0.25em] flex items-center gap-3 mb-4" style={{ color: "var(--color-champagne)" }}>
           <span className="inline-block w-8 h-px bg-champagne" />
@@ -467,7 +467,7 @@ function SectorsSection() {
         </span>
         <RevealText
           as="h2"
-          className="font-[family-name:var(--font-display)] font-semibold leading-[1.05] tracking-[-0.03em] text-stone-900 mb-12"
+          className="font-[family-name:var(--font-display)] font-semibold leading-[1.05] tracking-[-0.03em] text-stone-900 mb-16"
           style={{ fontSize: "clamp(36px, 5vw, 64px)" }}
         >
           Across Industries. Across Scales.
@@ -486,7 +486,7 @@ function SectorsSection() {
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <h3 className="font-[family-name:var(--font-body)] text-lg font-medium text-stone-900 group-hover:text-champagne transition-colors duration-300">{sector.name}</h3>
-                  <p className="font-[family-name:var(--font-body)] text-sm mt-1 leading-relaxed" style={{ color: "var(--color-stone-500)" }}>{sector.detail}</p>
+                  <p className="font-[family-name:var(--font-body)] text-sm mt-1 leading-[1.75]" style={{ color: "var(--color-stone-500)" }}>{sector.detail}</p>
                 </div>
                 <span className="font-[family-name:var(--font-mono)] text-[13px] font-medium shrink-0 mt-1" style={{ color: "var(--color-stone-300)" }}>{String(i + 1).padStart(2, "0")}</span>
               </div>
@@ -512,11 +512,11 @@ function CTASection() {
           </div>
           <div className="flex items-center px-5 md:px-10 lg:px-16 xl:px-20 py-20 lg:py-24">
             <div className="max-w-[480px]">
-              <span className="font-[family-name:var(--font-body)] text-[11px] font-semibold uppercase tracking-[0.25em] flex items-center gap-3 mb-6" style={{ color: "var(--color-champagne)" }}>
+              <span className="font-[family-name:var(--font-body)] text-[11px] font-semibold uppercase tracking-[0.25em] flex items-center gap-3 mb-4" style={{ color: "var(--color-champagne)" }}>
                 <span className="inline-block w-8 h-px bg-champagne" />
                 Work With Us
               </span>
-              <RevealText as="h2" className="font-[family-name:var(--font-display)] font-semibold leading-[1.05] tracking-[-0.03em]" style={{ fontSize: "clamp(32px, 4vw, 52px)", color: "var(--color-ivory)" }}>
+              <RevealText as="h2" className="font-[family-name:var(--font-display)] font-semibold leading-[1.05] tracking-[-0.03em]" style={{ fontSize: "clamp(36px, 5vw, 64px)", color: "var(--color-ivory)" }}>
                 Ready to Start a Conversation?
               </RevealText>
               <motion.p

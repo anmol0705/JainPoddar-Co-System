@@ -1,34 +1,40 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export function CustomCursor() {
-  const dotRef = useRef<HTMLDivElement>(null);
-  const ringRef = useRef<HTMLDivElement>(null);
-  const mousePos = useRef({ x: 0, y: 0 });
-  const dotPos = useRef({ x: 0, y: 0 });
-  const ringPos = useRef({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
+  const cursorX = useMotionValue(-100);
+  const cursorY = useMotionValue(-100);
+
+  // Smooth springs for the ring
+  const springConfig = { damping: 25, stiffness: 300, mass: 0.5 };
+  const cursorXSpring = useSpring(cursorX, springConfig);
+  const cursorYSpring = useSpring(cursorY, springConfig);
+
+  // Fast springs for the dot
+  const dotSpringConfig = { damping: 30, stiffness: 700, mass: 0.1 };
+  const dotXSpring = useSpring(cursorX, dotSpringConfig);
+  const dotYSpring = useSpring(cursorY, dotSpringConfig);
 
   useEffect(() => {
-    // Don't render on touch devices
-    if ("ontouchstart" in window) return;
+    if (typeof window === "undefined" || "ontouchstart" in window) return;
 
-    const handleMouseMove = (e: MouseEvent) => {
-      mousePos.current = { x: e.clientX, y: e.clientY };
+    const moveCursor = (e: MouseEvent) => {
+      cursorX.set(e.clientX);
+      cursorY.set(e.clientY);
+      if (!isVisible) setIsVisible(true);
     };
 
-    const handleHoverEnter = () => {
-      ringRef.current?.classList.add("hovering");
-    };
+    window.addEventListener("mousemove", moveCursor);
 
-    const handleHoverLeave = () => {
-      ringRef.current?.classList.remove("hovering");
-    };
+    const handleHoverEnter = () => setIsHovering(true);
+    const handleHoverLeave = () => setIsHovering(false);
 
-    window.addEventListener("mousemove", handleMouseMove);
-
-    // Watch for interactive elements
-    const observer = new MutationObserver(() => {
+    const attachListeners = () => {
       const interactives = document.querySelectorAll("a, button, [role='button'], input, textarea, select");
       interactives.forEach((el) => {
         el.removeEventListener("mouseenter", handleHoverEnter);
@@ -36,52 +42,58 @@ export function CustomCursor() {
         el.addEventListener("mouseenter", handleHoverEnter);
         el.addEventListener("mouseleave", handleHoverLeave);
       });
-    });
-
-    observer.observe(document.body, { childList: true, subtree: true });
-
-    // Initial bind
-    const interactives = document.querySelectorAll("a, button, [role='button'], input, textarea, select");
-    interactives.forEach((el) => {
-      el.addEventListener("mouseenter", handleHoverEnter);
-      el.addEventListener("mouseleave", handleHoverLeave);
-    });
-
-    // Animation loop
-    let animId: number;
-    const animate = () => {
-      // Dot follows immediately
-      dotPos.current.x += (mousePos.current.x - dotPos.current.x) * 0.35;
-      dotPos.current.y += (mousePos.current.y - dotPos.current.y) * 0.35;
-
-      // Ring follows with lag
-      ringPos.current.x += (mousePos.current.x - ringPos.current.x) * 0.12;
-      ringPos.current.y += (mousePos.current.y - ringPos.current.y) * 0.12;
-
-      if (dotRef.current) {
-        dotRef.current.style.transform = `translate(${dotPos.current.x - 4}px, ${dotPos.current.y - 4}px)`;
-      }
-      if (ringRef.current) {
-        const ringSize = ringRef.current.classList.contains("hovering") ? 32 : 20;
-        ringRef.current.style.transform = `translate(${ringPos.current.x - ringSize}px, ${ringPos.current.y - ringSize}px)`;
-      }
-
-      animId = requestAnimationFrame(animate);
     };
 
-    animId = requestAnimationFrame(animate);
+    const observer = new MutationObserver(attachListeners);
+    observer.observe(document.body, { childList: true, subtree: true });
+    attachListeners();
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mousemove", moveCursor);
       observer.disconnect();
-      cancelAnimationFrame(animId);
     };
-  }, []);
+  }, [cursorX, cursorY, isVisible]);
 
   return (
     <>
-      <div ref={dotRef} className="cursor-dot hidden lg:block" />
-      <div ref={ringRef} className="cursor-ring hidden lg:block" />
+      <motion.div
+        className="fixed top-0 left-0 w-2 h-2 rounded-full pointer-events-none z-[99999] hidden lg:block"
+        style={{
+          backgroundColor: "var(--color-champagne)",
+          mixBlendMode: "difference",
+          x: dotXSpring,
+          y: dotYSpring,
+          translateX: "-50%",
+          translateY: "-50%",
+        }}
+        animate={{
+          scale: isHovering ? 0 : 1,
+          opacity: isVisible ? 1 : 0
+        }}
+        transition={{ duration: 0.2 }}
+      />
+      <motion.div
+        className="fixed top-0 left-0 rounded-full pointer-events-none z-[99998] hidden lg:flex items-center justify-center border border-[rgba(201,168,76,0.3)]"
+        style={{
+          x: cursorXSpring,
+          y: cursorYSpring,
+          translateX: "-50%",
+          translateY: "-50%",
+          backgroundColor: isHovering ? "rgba(201,168,76,0.15)" : "rgba(201,168,76,0.05)",
+        }}
+        animate={{
+          width: isHovering ? 64 : 36,
+          height: isHovering ? 64 : 36,
+          opacity: isVisible ? 1 : 0
+        }}
+        transition={{ type: "spring", stiffness: 300, damping: 25 }}
+      >
+        <motion.div
+          animate={{ scale: isHovering ? 1 : 0, opacity: isHovering ? 1 : 0 }}
+          transition={{ duration: 0.2 }}
+          className="w-1.5 h-1.5 rounded-full bg-[var(--color-champagne)]"
+        />
+      </motion.div>
     </>
   );
 }

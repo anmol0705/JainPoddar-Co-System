@@ -52,11 +52,13 @@ function HeroSection() {
         { opacity: 0, y: 20 },
         { opacity: 1, y: 0, duration: 1, ease: "power3.out", delay: 1.6 }
       );
+      /*
       gsap.fromTo(
         ".hero-credentials",
         { opacity: 0 },
         { opacity: 1, duration: 1, ease: "power3.out", delay: 1.9 }
       );
+      */
 
       // Right images — staggered clip-path reveals
       gsap.utils.toArray<HTMLElement>(".hero-img-reveal").forEach((img, i) => {
@@ -667,7 +669,7 @@ function ServicesSection() {
               Depth Across Every Discipline
             </RevealText>
           </div>
-          <div className="lg:col-span-5 flex items-end">
+          <div className="lg:col-span-5 flex items-end mt-6 lg:mt-0">
             <p
               className="font-[family-name:var(--font-body)] text-base leading-[1.7] max-w-[400px]"
               style={{ color: "var(--color-stone-500)" }}
@@ -1102,8 +1104,8 @@ function TestimonialSection() {
     >
       <div className="absolute inset-0">
         <Image
-          src="/images/about1.jpg"
-          alt=""
+          src="/images/quote-image.jpg"
+          alt="/images/about2.jpg"
           fill
           className="object-cover"
           sizes="100vw"

@@ -47,15 +47,15 @@ export default function TeamPage() {
 
       {/* Full-width team photo */}
       <section className="relative overflow-hidden" style={{ backgroundColor: "var(--color-ink)" }}>
-        <div className="aspect-[21/6] md:aspect-[21/5] relative">
+        <div className="aspect-[8/5] md:aspect-[21/9] lg:aspect-[21/8] relative">
           <Image
-            src="/images/about5.jpg"
-            alt="The Jain Poddar & Co. team"
+            src="/images/about3.jpg"
+            alt="The full JPC team"
             fill
-            className="object-cover object-center"
+            className="object-cover object-center img-editorial"
             sizes="100vw"
             loading="lazy"
-            style={{ opacity: 0.5, filter: "grayscale(0.3)" }}
+            style={{ opacity: 0.5 }}
           />
           <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, var(--color-ink) 0%, transparent 30%, transparent 70%, var(--color-ink) 100%)" }} />
         </div>
@@ -102,15 +102,24 @@ export default function TeamPage() {
                         sizes="(max-width: 1024px) 100vw, 50vw"
                         loading="lazy"
                       />
-                      <div
-                        className="absolute inset-0"
-                        style={{
-                          background: isDark
-                            ? "linear-gradient(to top, rgba(10,22,40,0.3) 0%, transparent 40%)"
-                            : "linear-gradient(to top, rgba(0,0,0,0.1) 0%, transparent 30%)",
-                        }}
-                      />
-                    </div>
+                        <div
+                          className="absolute inset-0"
+                          style={{
+                            background: isDark
+                              ? "linear-gradient(to top, rgba(10,22,40,0.3) 0%, transparent 40%)"
+                              : "linear-gradient(to top, rgba(0,0,0,0.1) 0%, transparent 30%)",
+                          }}
+                        />
+                        {/* Horizontal gradient for seamless blending into text */}
+                        <div
+                          className="absolute inset-0 hidden lg:block"
+                          style={{
+                            background: isEven
+                              ? `linear-gradient(to right, transparent 50%, ${isDark ? 'var(--color-ink)' : 'var(--color-ivory)'} 100%)`
+                              : `linear-gradient(to left, transparent 50%, ${isDark ? 'var(--color-ink)' : 'var(--color-ivory)'} 100%)`,
+                          }}
+                        />
+                      </div>
                   </div>
 
                   {/* Bio */}
@@ -219,8 +228,29 @@ export default function TeamPage() {
             className="font-[family-name:var(--font-display)] italic leading-[1.4] tracking-[-0.01em]"
             style={{ fontSize: "clamp(22px, 3vw, 36px)", color: "var(--color-ivory)" }}
           >
-            The people you meet are the people who do the work. That is not just our philosophy — it is our structure.
+            The best compliance work is invisible — clients never hear from the department because we resolved it before it became a conversation.
           </motion.blockquote>
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="mt-8 flex flex-wrap items-center justify-center gap-3"
+          >
+            <span className="w-8 h-px" style={{ backgroundColor: "var(--color-champagne)" }} />
+            <span
+              className="font-[family-name:var(--font-body)] text-[13px] font-semibold uppercase tracking-[0.15em]"
+              style={{ color: "var(--color-champagne)" }}
+            >
+              CA. Anish Agarwal
+            </span>
+            <span
+              className="font-[family-name:var(--font-body)] text-[13px]"
+              style={{ color: "var(--color-stone-500)" }}
+            >
+              &mdash; Partner, GST Consultancy & Dispute Resolution
+            </span>
+          </motion.div>
         </div>
       </section>
 

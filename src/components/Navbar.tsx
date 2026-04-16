@@ -64,6 +64,8 @@ export function Navbar() {
               width={160}
               height={48}
               className="h-10 lg:h-12 w-auto object-contain"
+              // style={{ width: 'auto', height: 'auto' }}
+              style={{ width: 'auto' }}
               priority
             />
           </Link>
@@ -101,12 +103,12 @@ export function Navbar() {
                 color: "var(--color-ink)",
               }}
               onMouseEnter={(e) =>
-                (e.currentTarget.style.backgroundColor =
-                  "var(--color-champagne-muted)")
+              (e.currentTarget.style.backgroundColor =
+                "var(--color-champagne-muted)")
               }
               onMouseLeave={(e) =>
-                (e.currentTarget.style.backgroundColor =
-                  "var(--color-champagne)")
+              (e.currentTarget.style.backgroundColor =
+                "var(--color-champagne)")
               }
             >
               Schedule a Consultation
