@@ -30,6 +30,10 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  icons: {
+    icon: "/images/logo1.webp",
+    apple: "/images/logo1.webp",
+  },
   title: {
     default: "Jain Poddar & Co. | Chartered Accountants in Ranchi | Tax, Audit & Advisory",
     template: "%s | Jain Poddar & Co.",

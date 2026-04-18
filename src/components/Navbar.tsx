@@ -73,9 +73,8 @@ export function Navbar() {
               alt="Jain Poddar & Co."
               width={200}
               height={48}
-              className="h-13 lg:h-16 w-auto object-contain"
-              style={{ width: 'auto', height: 'auto' }}
-              // style={{ width: 'auto' }}
+              className="h-10 lg:h-12 w-auto object-contain"
+              style={{ width: "auto" }}
               priority
             />
           </Link>

@@ -973,7 +973,7 @@ function StatsSection() {
               context: "Every vertical partner-led",
             },
             {
-              value: 500,
+              value: 1000,
               suffix: "+",
               label: "Clients Served",
               context: "Banking, govt & private",

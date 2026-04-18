@@ -232,7 +232,7 @@ function OfficeInfo() {
           fill
           className="object-cover"
           sizes="50vw"
-          loading="lazy"
+          priority
           style={{ opacity: 0.08, filter: "grayscale(1)" }}
         />
       </div>

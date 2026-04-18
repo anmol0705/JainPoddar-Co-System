@@ -9,6 +9,7 @@ import { PageHeader } from "@/components/PageHeader";
 import { RevealText } from "@/components/RevealText";
 import { MagneticButton } from "@/components/MagneticButton";
 import { partners } from "@/lib/data/partners";
+import { seniorStaff } from "@/lib/data/staff";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -47,9 +48,9 @@ export default function TeamPage() {
 
       {/* Full-width team photo */}
       <section className="relative overflow-hidden" style={{ backgroundColor: "var(--color-ink)" }}>
-        <div className="aspect-[8/5] md:aspect-[21/9] lg:aspect-[21/8] relative">
+        <div className="aspect-[8/5] md:aspect-[21/9] lg:aspect-[21/10] relative">
           <Image
-            src="/images/about3.webp"
+            src="/images/about11.jpeg"
             alt="The full JPC team"
             fill
             className="object-cover object-center img-editorial"
@@ -92,7 +93,10 @@ export default function TeamPage() {
               <div className="max-w-[1440px] mx-auto">
                 <div className={`grid grid-cols-1 lg:grid-cols-2 min-h-[70vh]`}>
                   {/* Image */}
-                  <div className={`${isEven ? "lg:order-1" : "lg:order-2"}`}>
+                  <div
+                    className={`${isEven ? "lg:order-1" : "lg:order-2"}`}
+                    style={{ backgroundColor: isDark ? "var(--color-ink)" : "var(--color-ivory)" }}
+                  >
                     <div className="partner-image-wrap relative min-h-[400px] lg:min-h-full overflow-hidden">
                       <Image
                         src={partner.image}
@@ -102,28 +106,33 @@ export default function TeamPage() {
                         sizes="(max-width: 1024px) 100vw, 50vw"
                         loading="lazy"
                       />
-                        <div
-                          className="absolute inset-0"
-                          style={{
-                            background: isDark
-                              ? "linear-gradient(to top, rgba(10,22,40,0.3) 0%, transparent 40%)"
-                              : "linear-gradient(to top, rgba(0,0,0,0.1) 0%, transparent 30%)",
-                          }}
-                        />
-                        {/* Horizontal gradient for seamless blending into text */}
-                        <div
-                          className="absolute inset-0 hidden lg:block"
-                          style={{
-                            background: isEven
-                              ? `linear-gradient(to right, transparent 50%, ${isDark ? 'var(--color-ink)' : 'var(--color-ivory)'} 100%)`
-                              : `linear-gradient(to left, transparent 50%, ${isDark ? 'var(--color-ink)' : 'var(--color-ivory)'} 100%)`,
-                          }}
-                        />
-                      </div>
+                      <div
+                        className="absolute inset-0"
+                        style={{
+                          background: isDark
+                            ? "linear-gradient(to top, rgba(10,22,40,0.3) 0%, transparent 40%)"
+                            : "linear-gradient(to top, rgba(0,0,0,0.1) 0%, transparent 30%)",
+                        }}
+                      />
+                      {/* Horizontal gradient for seamless blending into text */}
+                      <div
+                        className="absolute inset-0 hidden lg:block"
+                        style={{
+                          background: isEven
+                            ? `linear-gradient(to right, transparent 70%, ${isDark ? 'var(--color-ink)' : 'var(--color-ivory)'} 90%)`
+                            : `linear-gradient(to left, transparent 70%, ${isDark ? 'var(--color-ink)' : 'var(--color-ivory)'} 90%)`,
+                        }}
+                      />
+                    </div>
                   </div>
 
                   {/* Bio */}
-                  <div className={`flex items-center px-5 md:px-10 lg:px-16 xl:px-20 py-16 lg:py-24 ${isEven ? "lg:order-2" : "lg:order-1"}`}>
+                  <div className={`relative flex items-center px-5 md:px-10 lg:px-16 xl:px-20 py-16 lg:py-24 ${isEven ? "lg:order-2" : "lg:order-1"}`}>
+                    {/* Seam cover: solid strip that bleeds into the image column to kill the grid-boundary line */}
+                    <div
+                      className={`absolute inset-y-0 w-10 hidden lg:block pointer-events-none ${isEven ? "left-0 -translate-x-1/2" : "right-0 translate-x-1/2"}`}
+                      style={{ backgroundColor: isDark ? "var(--color-ink)" : "var(--color-ivory)" }}
+                    />
                     <div className="max-w-[520px]">
                       {partner.isSenior && (
                         <motion.div
@@ -213,13 +222,153 @@ export default function TeamPage() {
             </section>
           );
         })}
+
+        {/* Senior staff — continues the alternating pattern from partner index 4 */}
+        {seniorStaff.map((member, i) => {
+          const absIndex = partners.length + i;
+          const isEven = absIndex % 2 === 0;
+          const isDark = absIndex % 2 !== 0;
+
+          return (
+            <section
+              key={member.slug}
+              id={member.slug}
+              className="scroll-mt-20 relative overflow-hidden"
+              style={{ backgroundColor: isDark ? "var(--color-ink)" : "var(--color-ivory)" }}
+            >
+              <div
+                className="absolute top-1/2 -translate-y-1/2 pointer-events-none select-none hidden lg:block"
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "clamp(200px, 20vw, 360px)",
+                  fontWeight: 700,
+                  color: isDark ? "rgba(247,244,237,0.015)" : "rgba(26,26,26,0.02)",
+                  lineHeight: 1,
+                  ...(isEven ? { right: "-40px" } : { left: "-40px" }),
+                }}
+              >
+                {String(absIndex + 1).padStart(2, "0")}
+              </div>
+
+              <div className="max-w-[1440px] mx-auto">
+                <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[70vh]">
+                  {/* Image */}
+                  <div
+                    className={`${isEven ? "lg:order-1" : "lg:order-2"}`}
+                    style={{ backgroundColor: isDark ? "var(--color-ink)" : "var(--color-ivory)" }}
+                  >
+                    <div className="partner-image-wrap relative min-h-[400px] lg:min-h-full overflow-hidden">
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        fill
+                        className="object-cover object-top"
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        loading="lazy"
+                      />
+                      <div
+                        className="absolute inset-0"
+                        style={{
+                          background: isDark
+                            ? "linear-gradient(to top, rgba(10,22,40,0.3) 0%, transparent 40%)"
+                            : "linear-gradient(to top, rgba(0,0,0,0.1) 0%, transparent 30%)",
+                        }}
+                      />
+                      <div
+                        className="absolute inset-0 hidden lg:block"
+                        style={{
+                          background: isEven
+                            ? `linear-gradient(to right, transparent 50%, ${isDark ? "var(--color-ink)" : "var(--color-ivory)"} 90%)`
+                            : `linear-gradient(to left, transparent 50%, ${isDark ? "var(--color-ink)" : "var(--color-ivory)"} 90%)`,
+                        }}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Bio */}
+                  <div className={`relative flex items-center px-5 md:px-10 lg:px-16 xl:px-20 py-16 lg:py-24 ${isEven ? "lg:order-2" : "lg:order-1"}`}>
+                    {/* Seam cover: solid strip that bleeds into the image column to kill the grid-boundary line */}
+                    <div
+                      className={`absolute inset-y-0 w-10 hidden lg:block pointer-events-none ${isEven ? "left-0 -translate-x-1/2" : "right-0 translate-x-1/2"}`}
+                      style={{ backgroundColor: isDark ? "var(--color-ink)" : "var(--color-ivory)" }}
+                    />
+                    <div className="max-w-[520px]">
+                      <motion.span
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="font-[family-name:var(--font-body)] text-[11px] font-semibold uppercase tracking-[0.25em] flex items-center gap-3 mb-3"
+                        style={{ color: "var(--color-champagne)" }}
+                      >
+                        {member.role}
+                      </motion.span>
+
+                      <RevealText
+                        as="h2"
+                        className="font-[family-name:var(--font-display)] font-semibold leading-[1.1] tracking-[-0.02em]"
+                        style={{
+                          fontSize: "clamp(32px, 4vw, 48px)",
+                          color: isDark ? "var(--color-ivory)" : "var(--color-stone-900)",
+                        }}
+                      >
+                        {member.name}
+                      </RevealText>
+
+                      <motion.p
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3, duration: 0.6 }}
+                        className="font-[family-name:var(--font-mono)] text-sm mt-2"
+                        style={{ color: "var(--color-stone-500)" }}
+                      >
+                        {member.qualifications}
+                      </motion.p>
+
+                      <div className="mt-6 space-y-4">
+                        {member.bio.map((paragraph, j) => (
+                          <motion.p
+                            key={j}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-40px" }}
+                            transition={{ delay: 0.2 + j * 0.1, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                            className="font-[family-name:var(--font-body)] text-base leading-[1.7]"
+                            style={{ color: isDark ? "var(--color-stone-300)" : "var(--color-stone-700)" }}
+                          >
+                            {paragraph}
+                          </motion.p>
+                        ))}
+                      </div>
+
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.4, duration: 0.6 }}
+                        className="mt-6"
+                      >
+                        <span
+                          className="font-[family-name:var(--font-mono)] text-[10px] font-medium uppercase tracking-[0.2em] px-3 py-1.5 inline-block"
+                          style={{ backgroundColor: "rgba(201,168,76,0.1)", color: "var(--color-champagne)" }}
+                        >
+                          {member.division}
+                        </span>
+                      </motion.div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          );
+        })}
       </div>
 
       {/* Philosophy */}
       <section className="py-28 md:py-36 lg:py-44 relative overflow-hidden" style={{ backgroundColor: "var(--color-ink)" }}>
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 60% 50% at 50% 50%, rgba(201,168,76,0.03) 0%, transparent 70%)" }} />
         <div className="max-w-[800px] mx-auto px-5 md:px-10 text-center relative z-10">
-          <span className="font-[family-name:var(--font-display)] block mb-6 leading-none" style={{ fontSize: "clamp(80px, 10vw, 140px)", color: "var(--color-champagne)", opacity: 0.2 }}>&ldquo;</span>
           <motion.blockquote
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}

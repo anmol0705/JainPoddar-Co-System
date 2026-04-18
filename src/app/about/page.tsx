@@ -352,7 +352,7 @@ function StatsSection() {
             { value: 24, suffix: "+", label: "Years in Practice", context: "Since 2002" },
             { value: 4, suffix: "", label: "Partners", context: "Each a distinct specialist" },
             { value: 16, suffix: "", label: "Service Verticals", context: "Every vertical partner-led" },
-            { value: 500, suffix: "+", label: "Clients Served", context: "Banking, govt & private sector" },
+            { value: 1000, suffix: "+", label: "Clients Served", context: "Banking, govt & private sector" },
           ].map((stat, i) => (
             <div key={i} className={`text-center ${i < 3 ? "lg:border-r lg:border-stone-300/10" : ""}`}>
               <StatCounter value={stat.value} suffix={stat.suffix} label={stat.label} context={stat.context} />
@@ -441,9 +441,9 @@ function PartnersPreview() {
                   <p className="font-[family-name:var(--font-body)] text-[13px] leading-relaxed" style={{ color: "var(--color-stone-500)" }}>
                     {partner.coreFocus}
                   </p>
-                  <p className="font-[family-name:var(--font-mono)] text-[11px] mt-1" style={{ color: "var(--color-stone-300)" }}>
+                  {/* <p className="font-[family-name:var(--font-mono)] text-[11px] mt-1" style={{ color: "var(--color-stone-300)" }}>
                     {partner.qualifications.split("|")[0].trim()}
-                  </p>
+                  </p> */}
                 </div>
               </Link>
             </motion.div>

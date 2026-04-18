@@ -281,7 +281,7 @@ function FeaturedShowcase() {
    ═══════════════════════════════════════════════════ */
 function ServiceAccordion() {
   const groups = getServiceGroups();
-  const [openCategory, setOpenCategory] = useState<number | null>(0);
+  const [openCategory, setOpenCategory] = useState<number | null>(null);
   const [expandedSlug, setExpandedSlug] = useState<string | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -484,16 +484,9 @@ function ServiceAccordion() {
                           .filter(Boolean);
 
                         return (
-                          <motion.div
+                          <div
                             key={service.slug}
                             id={service.slug}
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{
-                              delay: si * 0.06,
-                              duration: 0.5,
-                              ease: [0.16, 1, 0.3, 1],
-                            }}
                             className="scroll-mt-24"
                           >
                             <button
@@ -699,7 +692,7 @@ function ServiceAccordion() {
                                 </motion.div>
                               )}
                             </AnimatePresence>
-                          </motion.div>
+                          </div>
                         );
                       })}
                     </div>
