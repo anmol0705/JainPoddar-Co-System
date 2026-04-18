@@ -228,7 +228,7 @@ function HeroSection() {
               {/* Tall left image */}
               <div className="hero-img-reveal relative overflow-hidden row-span-2">
                 <Image
-                  src="/images/about6.jpg"
+                  src="/images/about6.webp"
                   alt="JPC professional workspace"
                   fill
                   className="object-cover"
@@ -248,7 +248,7 @@ function HeroSection() {
               {/* Top right — smaller */}
               <div className="hero-img-reveal relative overflow-hidden">
                 <Image
-                  src="/images/about1.jpg"
+                  src="/images/about1.webp"
                   alt="ICAI Recognition"
                   fill
                   className="object-cover"
@@ -268,7 +268,7 @@ function HeroSection() {
               {/* Bottom right */}
               <div className="hero-img-reveal relative overflow-hidden">
                 <Image
-                  src="/images/about10.jpg"
+                  src="/images/about10.webp"
                   alt="Team collaboration"
                   fill
                   className="object-cover"
@@ -456,7 +456,7 @@ function AboutSection() {
             className="split-image-container relative aspect-square lg:aspect-auto lg:min-h-[80vh]"
           >
             <Image
-              src="/images/about6.jpg"
+              src="/images/about6.webp"
               alt="Jain Poddar & Co. office workspace"
               fill
               className="object-cover img-editorial scale-110"
@@ -840,7 +840,7 @@ function EditorialSection() {
         <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-12 gap-4">
           <div className="editorial-img md:col-span-7 relative aspect-[4/3] overflow-hidden">
             <Image
-              src="/images/about1.jpg"
+              src="/images/about1.webp"
               alt="ICAI Recognition Ceremony"
               fill
               className="object-cover img-editorial"
@@ -874,7 +874,7 @@ function EditorialSection() {
           <div className="md:col-span-5 grid grid-rows-2 gap-4">
             <div className="editorial-img relative aspect-[16/10] overflow-hidden">
               <Image
-                src="/images/about6.jpg"
+                src="/images/about6.webp"
                 alt="JPC Workspace"
                 fill
                 className="object-cover img-editorial"
@@ -900,7 +900,7 @@ function EditorialSection() {
 
             <div className="editorial-img relative aspect-[16/10] overflow-hidden">
               <Image
-                src="/images/about8.jpg"
+                src="/images/about8.webp"
                 alt="Capital Market Conference"
                 fill
                 className="object-cover img-editorial"
@@ -1104,8 +1104,8 @@ function TestimonialSection() {
     >
       <div className="absolute inset-0">
         <Image
-          src="/images/quote-image.jpg"
-          alt="/images/about2.jpg"
+          src="/images/quote-image.webp"
+          alt="/images/about2.webp"
           fill
           className="object-cover"
           sizes="100vw"
@@ -1156,7 +1156,7 @@ function TestimonialSection() {
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-full overflow-hidden relative shrink-0">
                 <Image
-                  src="/images/uttam.jpg"
+                  src="/images/uttam.webp"
                   alt="CA. Uttam Jain"
                   fill
                   className="object-cover"
@@ -1196,7 +1196,7 @@ function CTASection() {
         <div className="grid grid-cols-1 lg:grid-cols-2">
           <div className="relative hidden lg:block min-h-[70vh] overflow-hidden">
             <Image
-              src="/images/about10.jpg"
+              src="/images/about10.webp"
               alt="Jain Poddar & Co. team at work"
               fill
               className="object-cover img-editorial"

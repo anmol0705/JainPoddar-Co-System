@@ -35,7 +35,7 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-5">
             <Image
-              src="/images/logo3.jpg"
+              src="/images/logo3.webp"
               alt="Jain Poddar & Co."
               width={320}
               height={96}

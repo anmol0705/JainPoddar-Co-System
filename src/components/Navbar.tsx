@@ -69,7 +69,7 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-1 shrink-0">
             <Image
-              src="/images/logo6.png"
+              src="/images/logo6.webp"
               alt="Jain Poddar & Co."
               width={200}
               height={48}

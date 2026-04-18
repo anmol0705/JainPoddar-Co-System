@@ -21,12 +21,12 @@ gsap.registerPlugin(ScrollTrigger);
    Image map for featured services
    ═══════════════════════════════════════════════════ */
 const serviceImages: Record<string, string> = {
-  "statutory-audit": "/images/about7.jpg",
-  "direct-tax-consultancy": "/images/about2.jpg",
-  "gst-consultancy-services": "/images/about9.jpg",
-  "due-diligence": "/images/about10.jpg",
-  "loan-syndication": "/images/about8.jpg",
-  "risk-advisory-services": "/images/about3.jpg",
+  "statutory-audit": "/images/about7.webp",
+  "direct-tax-consultancy": "/images/about2.webp",
+  "gst-consultancy-services": "/images/about9.webp",
+  "due-diligence": "/images/about10.webp",
+  "loan-syndication": "/images/about8.webp",
+  "risk-advisory-services": "/images/about3.webp",
 };
 
 /* ═══════════════════════════════════════════════════
@@ -38,7 +38,7 @@ function FeaturedShowcase() {
   const autoplayRef = useRef<ReturnType<typeof setInterval>>(undefined);
 
   const service = featuredServices[active];
-  const imageUrl = serviceImages[service.slug] || "/images/about4.jpg";
+  const imageUrl = serviceImages[service.slug] || "/images/about4.webp";
 
   const startAutoplay = useCallback(() => {
     if (autoplayRef.current) clearInterval(autoplayRef.current);
@@ -915,7 +915,7 @@ function CTASection() {
           {/* Image side */}
           <div className="relative hidden lg:block min-h-[60vh] overflow-hidden">
             <Image
-              src="/images/about9.jpg"
+              src="/images/about9.webp"
               alt="JPC office"
               fill
               className="object-cover img-editorial"

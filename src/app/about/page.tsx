@@ -81,7 +81,7 @@ function FoundingStory() {
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[70vh]">
           <div ref={imageRef} className="split-image-container relative min-h-[400px] lg:min-h-full">
             <Image
-              src="/images/about4.jpg"
+              src="/images/about4.webp"
               alt="Jain Poddar & Co. team"
               fill
               className="object-cover img-editorial scale-105"
@@ -145,7 +145,7 @@ function TeamPhotoStrip() {
     <section className="relative overflow-hidden" style={{ backgroundColor: "var(--color-ink)" }}>
       <div className="aspect-[8/5] md:aspect-[21/9] lg:aspect-[21/8] relative">
         <Image
-          src="/images/about3.jpg"
+          src="/images/about3.webp"
           alt="The full JPC team"
           fill
           className="object-cover object-center img-editorial"
@@ -507,7 +507,7 @@ function CTASection() {
       <div className="max-w-[1440px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[50vh]">
           <div className="relative min-h-[250px] lg:min-h-full overflow-hidden hidden lg:block">
-            <Image src="/images/about9.jpg" alt="JPC office" fill className="object-cover img-editorial" sizes="50vw" loading="lazy" />
+            <Image src="/images/about9.webp" alt="JPC office" fill className="object-cover img-editorial" sizes="50vw" loading="lazy" />
             <div className="absolute inset-0" style={{ background: "linear-gradient(to right, transparent 60%, var(--color-ink) 100%)" }} />
           </div>
           <div className="flex items-center px-5 md:px-10 lg:px-16 xl:px-20 py-20 lg:py-24">

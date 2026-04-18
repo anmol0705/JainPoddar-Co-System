@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, Suspense } from "react";
+import { useEffect, useRef, Suspense, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
@@ -129,12 +129,105 @@ function ContactForm() {
   );
 }
 
+function MapEmbed() {
+  const [interactive, setInteractive] = useState(false);
+
+  return (
+    <div className="mt-10">
+      <div className="flex items-center justify-between mb-3">
+        <span
+          className="font-[family-name:var(--font-body)] text-[11px] font-semibold uppercase tracking-[0.2em] flex items-center gap-3"
+          style={{ color: "var(--color-champagne)" }}
+        >
+          <span className="inline-block w-6 h-px" style={{ backgroundColor: "var(--color-champagne)" }} />
+          Find Us
+        </span>
+        <a
+          href="https://maps.google.com/?q=Jain+Poddar+%26+Co,+Mangal+Tower,+Old+HB+Road,+Kantatoli,+Ranchi"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-[family-name:var(--font-body)] text-[11px] font-semibold uppercase tracking-[0.15em] flex items-center gap-1.5 transition-opacity duration-300 hover:opacity-100"
+          style={{ color: "var(--color-stone-500)", opacity: 0.7 }}
+        >
+          Open in Maps
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
+            <path d="M7 17L17 7M17 7H7M17 7V17" />
+          </svg>
+        </a>
+      </div>
+
+      <div
+        className="relative overflow-hidden"
+        style={{ border: "1px solid rgba(201,168,76,0.2)", boxShadow: "0 4px 24px rgba(0,0,0,0.4)" }}
+      >
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3662.541!2d85.3446201!3d23.3655929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f4e17975a9faa9%3A0xccdc72fd3a60e2e2!2sJain%20Poddar%20%26%20Co.!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+          width="100%"
+          className="block w-full h-[220px] sm:h-[260px] lg:h-[340px] xl:h-[380px] "
+          style={{ border: 0, filter: "grayscale(0.55) contrast(1.1) brightness(0.7)" }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          title="Jain Poddar & Co. Office Location"
+        />
+
+        {/* Scroll-jitter fix: overlay blocks iframe from stealing scroll events.
+            Clicking activates the map for direct interaction. */}
+        {!interactive && (
+          <div
+            className="absolute inset-0 z-20 flex items-center justify-center cursor-pointer group"
+            onClick={() => setInteractive(true)}
+            style={{ background: "rgba(10,22,40,0.01)" }}
+          >
+            <div
+              className="flex items-center gap-2 px-4 py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              style={{
+                backgroundColor: "rgba(10,22,40,0.85)",
+                border: "1px solid rgba(201,168,76,0.3)",
+                backdropFilter: "blur(8px)",
+              }}
+            >
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} style={{ color: "var(--color-champagne)" }} aria-hidden="true">
+                <path d="M15 15l-6-6m0 0l6-6m-6 6h12" />
+              </svg>
+              <span className="font-[family-name:var(--font-body)] text-[11px] font-semibold uppercase tracking-[0.15em]" style={{ color: "var(--color-champagne)" }}>
+                Click to interact
+              </span>
+            </div>
+          </div>
+        )}
+
+        <div
+          className="absolute bottom-0 left-0 right-0 h-12 pointer-events-none z-10"
+          style={{ background: "linear-gradient(to top, rgba(10,22,40,0.7) 0%, transparent 100%)" }}
+        />
+
+        <div className="absolute bottom-3 left-3 z-10 pointer-events-none">
+          <div
+            className="inline-flex items-center gap-2 px-3 py-1.5"
+            style={{
+              backgroundColor: "rgba(10,22,40,0.92)",
+              border: "1px solid rgba(201,168,76,0.25)",
+              backdropFilter: "blur(8px)",
+            }}
+          >
+            <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: "var(--color-champagne)" }} />
+            <span className="font-[family-name:var(--font-body)] text-[11px] font-medium" style={{ color: "rgba(247,244,237,0.85)" }}>
+              Mangal Tower, Kantatoli, Ranchi
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function OfficeInfo() {
   return (
     <div className="relative" style={{ backgroundColor: "var(--color-ink)" }}>
       <div className="absolute inset-0">
         <Image
-          src="/images/about9.jpg"
+          src="/images/about9.webp"
           alt="JPC Office"
           fill
           className="object-cover"
@@ -187,16 +280,7 @@ function OfficeInfo() {
             </p>
           </div>
 
-          <div className="mt-10 aspect-video overflow-hidden">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3662.541!2d85.3446201!3d23.3655929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f4e17975a9faa9%3A0xccdc72fd3a60e2e2!2sJain%20Poddar%20%26%20Co.!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-              width="100%" height="100%"
-              style={{ border: 0, filter: "grayscale(0.6) contrast(1.1) brightness(0.8)" }}
-              allowFullScreen loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Jain Poddar & Co. Office Location"
-            />
-          </div>
+          <MapEmbed />
         </div>
       </div>
     </div>
